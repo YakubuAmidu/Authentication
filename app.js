@@ -44,9 +44,9 @@ app.post('/register', function (req, res) {
 
   newUser.save(function (err) {
     if (err) {
-      res.send(err);
+      res.render(err);
     } else {
-      res.send('secrets');
+      res.render('secrets');
     }
   });
 });
