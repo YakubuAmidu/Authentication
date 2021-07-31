@@ -12,6 +12,18 @@ app.use(
   })
 );
 
+app.get('/', function (req, res) {
+  res.send('home');
+});
+
+app.get('/login', function (req, res) {
+  res.send('login');
+});
+
+app.get('/register', function (req, res) {
+  res.send('register');
+});
+
 app.listen(port, function () {
   console.log('Sever started on port 3000');
 });
