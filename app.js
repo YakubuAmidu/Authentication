@@ -5,7 +5,7 @@ const ejs = require('ejs');
 const app = express();
 
 app.use(express.static('public'));
-app.use('view engine', ejs);
+app.set('view engine', 'ejs');
 app.use(
   express.urlencoded({
     extended: true,
@@ -13,17 +13,17 @@ app.use(
 );
 
 app.get('/', function (req, res) {
-  res.send('home');
+  res.render('home');
 });
 
 app.get('/login', function (req, res) {
-  res.send('login');
+  res.render('login');
 });
 
 app.get('/register', function (req, res) {
-  res.send('register');
+  res.render('register');
 });
 
-app.listen(port, function () {
+app.listen(3000, function () {
   console.log('Sever started on port 3000');
 });
