@@ -52,7 +52,7 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: 'http://locaalhost:3000/auth/google/authentication',
+      callbackURL: 'http://localhost:3000/auth/google/authentication',
       userProfileURL: 'https://wwww.googleapis.com/oauth2/v3/userinfo',
     },
     function (accessToken, refreshToken, profile, cb) {
@@ -66,6 +66,11 @@ passport.use(
 app.get('/', function (req, res) {
   res.render('home');
 });
+
+app.get(
+  '/auth/google',
+  passport.authenticate('google', { scope: ['profile'] })
+);
 
 app.get('/login', function (req, res) {
   res.render('login');
